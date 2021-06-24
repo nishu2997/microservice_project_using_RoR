@@ -1,0 +1,27 @@
+<%= form_with url: url, method: method do |form| %>
+    <div class="course-form-field">
+        <%= form.label :"Course Name" %><br>
+        <%= form.text_field :name, value: @course['name'] %>
+        <% if !@errors.empty? and @errors['name'] != nil %>
+            <% @errors['name'].each do |message| %>
+                <div class="course-form-error-msg"><%= message %></div>
+            <% end %>
+        <%end%>
+    </div>
+    <div class="course-form-field">
+        <%= form.label :"Course Code" %><br>
+        <%= form.text_field :courseCode, value: @course['courseCode'] %>
+        <% if !@errors.empty? and @errors['courseCode'] != nil %>
+            <% @errors['courseCode'].each do |message| %>
+                <div class="course-form-error-msg"><%= message %></div>
+            <% end %>
+        <%end%>
+    </div>
+    <div class="course-form-field">
+        <%= form.label :"Department Name" %><br>
+        <%= form.select :departmentId, @departments_list, selected: @selected_department %>
+    </div>
+    <div class="course-form-button">
+        <%= form.submit %>
+    </div>
+<% end %>

@@ -1,0 +1,27 @@
+<%= form_with url: url, method: method do |form| %>
+    <div class="student-form-field">
+        <%= form.label :"Student Name" %><br>
+        <%= form.text_field :name, value: @student['name'] %>
+        <% if !@errors.empty? and @errors['name'] != nil %>
+            <% @errors['name'].each do |message| %>
+                <div class="student-form-error-msg"><%= message %></div>
+            <% end %>
+        <%end%>
+    </div>
+    <div class="student-form-field">
+        <%= form.label :"Roll Number" %><br>
+        <%= form.text_field :rollNumber, value: @student['rollNumber'] %>
+        <% if !@errors.empty? and @errors['rollNumber'] != nil %>
+            <% @errors['rollNumber'].each do |message| %>
+                <div class="student-form-error-msg"><%= message %></div>
+            <% end %>
+        <%end%>
+    </div>
+    <div class="student-form-field">
+        <%= form.label :"Department Name" %><br>
+        <%= form.select :departmentId, @departments_list, selected: @selected_department%>
+    </div>
+    <div class="student-form-button">
+        <%= form.submit %>
+    </div>
+<% end %>

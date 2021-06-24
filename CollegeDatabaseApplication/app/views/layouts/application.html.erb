@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>College Database</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        <div class="nav-left-part">
+          <div class="home-link">
+              <%= link_to "College Database", root_path%>
+          </div>
+          <div class="departments-link">
+              <%= link_to "Departments", departments_path%>
+          </div>
+          <div class="students-link">
+              <%= link_to "Students", students_path%>
+          </div>
+          <div class="courses-link">
+              <%= link_to "Courses", courses_path%>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main>
+     <%= yield %>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,23 @@
+<%= form_with url: url, method: method do |form| %>
+    <div class="department-form-field">
+        <%= form.label :"Department Name" %><br>
+        <%= form.text_field :name ,value: @department['name']%>
+        <% if !@errors.empty? and @errors['name'] != nil %>
+            <% @errors['name'].each do |message| %>
+                <div class="department-form-error-msg"><%= message %></div>
+            <% end %>
+        <%end%>
+    </div>
+    <div class="department-form-field">
+        <%= form.label :"Department Code" %><br>
+        <%= form.text_field :departmentCode, value: @department['departmentCode'] %>  
+        <% if !@errors.empty? and @errors['departmentCode'] != nil %>
+            <% @errors['departmentCode'].each do |message| %>
+                <div class="department-form-error-msg"><%= message %></div>
+            <% end %>
+        <%end%>
+    </div>
+    <div class="department-form-button">
+        <%= form.submit %>
+    </div>
+<% end %>
